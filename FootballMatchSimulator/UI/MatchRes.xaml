@@ -1,0 +1,71 @@
+﻿<Window x:Class="FootballMatchSimulator.UI.MatchRes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FootballMatchSimulator.UI"
+        mc:Ignorable="d"
+        Title="MatchRes" Height="356" Width="364" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="#FFBFF6B0" WindowStyle="None" Icon="/FootballMatchSimulator;component/Img/icons/icon.png">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="36"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Background="#FF8D5697" MouseDown="StackPanel_MouseDown">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="36">
+                <Button Name="aboutUsBtn" Width="26" Height="26" Cursor="Hand" Margin="0 0 266 0" Background="{x:Null}" BorderBrush="{x:Null}">
+                    <Image Source="/img/icons/icon.png"></Image>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FF5E4566"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button Name="cutDownBtn" Width="20" Height="20" Margin="0 0 10 0" BorderBrush="{x:Null}" Foreground="#ffffff" Click="cutDownBtn_Click"></Button>
+                <Button Name="powerBtn" Width="20" Height="20" Margin="0 0 8 0" BorderBrush="{x:Null}" Foreground="#ffffff" Click="powerBtn_Click"></Button>
+            </StackPanel>
+        </StackPanel>
+        <Label Grid.Row="1" FontFamily="Yu Gothic UI Semibold" FontSize="22" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label.Effect>
+                <DropShadowEffect Direction="318" Color="#FFA3DFCC" BlurRadius="10"/>
+            </Label.Effect> Result:</Label>
+        <Label Grid.Row="2" FontFamily="Yu Gothic UI Semibold" FontSize="22" Foreground="#FFF22EFF" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label.Effect>
+                <DropShadowEffect Direction="318" Color="#FFA3DFCC" BlurRadius="10"/>
+            </Label.Effect> Placeholder for result</Label>
+        <ListView Grid.Row="3" Margin="40 0" FontFamily="Yu Gothic UI Semibold" FontSize="16" Opacity="0.75">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="160">Player</GridViewColumn>
+                    <GridViewColumn Width="113">Progress</GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Grid.Row="4" MinWidth="120" Cursor="Hand" Height="40" Margin="100 0" BorderBrush="{x:Null}" FontFamily="Yu Gothic UI Semibold" FontSize="18" Background="#FFF69595" Foreground="Black">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" Color="#FF908181"/>
+            </Button.Effect>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Style.Triggers>
+                        <Trigger Property="Button.IsPressed" Value="True">
+                            <Setter Property="Background" Value="Transparent" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FFADEBF3"/>
+                            <Setter Property="Foreground" Value="#000000"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            Save
+        </Button>
+    </Grid>
+</Window>
