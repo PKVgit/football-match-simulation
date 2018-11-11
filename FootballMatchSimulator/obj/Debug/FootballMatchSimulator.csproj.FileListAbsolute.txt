@@ -23,3 +23,4 @@ C:\Users\Maxim\Desktop\KPI\ТРПЗ-2\FootballMatchSimulator\FootballMatchSimula
 C:\Users\Maxim\Desktop\KPI\ТРПЗ-2\FootballMatchSimulator\FootballMatchSimulator\obj\Debug\FootballMatchSimulator.csproj.CoreCompileInputs.cache
 C:\Users\Maxim\Desktop\KPI\ТРПЗ-2\FootballMatchSimulator\FootballMatchSimulator\obj\Debug\FootballMatchSimulator.exe
 C:\Users\Maxim\Desktop\KPI\ТРПЗ-2\FootballMatchSimulator\FootballMatchSimulator\obj\Debug\FootballMatchSimulator.pdb
+C:\Users\Maxim\Desktop\KPI\ТРПЗ-2\FootballMatchSimulator\FootballMatchSimulator\obj\Debug\GeneratedInternalTypeHelper.g.cs

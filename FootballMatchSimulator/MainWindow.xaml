@@ -38,7 +38,7 @@
         </Label>
         <Image Grid.Row="2" Source="Img/main.jpg"></Image>
         <StackPanel Grid.Row="3" Orientation="Horizontal">
-            <Button MinWidth="120" Cursor="Hand" Height="50" Margin="214,0,20,0" BorderBrush="{x:Null}" FontFamily="Yu Gothic UI Semibold" FontSize="18" Background="#FF95CDCD" Foreground="#FF483939">
+            <Button Name="LogInBtn" MinWidth="120" Cursor="Hand" Height="50" Margin="214,0,20,0" BorderBrush="{x:Null}" FontFamily="Yu Gothic UI Semibold" FontSize="18" Background="#FF95CDCD" Foreground="#FF483939" Click="LogInBtn_Click">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="8" Color="#FF908181"/>
                 </Button.Effect>
@@ -56,7 +56,7 @@
                     </Style>
                 </Button.Style>
                 Log In</Button>
-            <Button MinWidth="120" Cursor="Hand" Height="50" BorderBrush="{x:Null}" FontFamily="Yu Gothic UI Semibold" FontSize="18" Background="#FF95CDCD" Foreground="#FF483939">
+            <Button Name="SignUpBtn" MinWidth="120" Cursor="Hand" Height="50" BorderBrush="{x:Null}" FontFamily="Yu Gothic UI Semibold" FontSize="18" Background="#FF95CDCD" Foreground="#FF483939" Click="SignUpBtn_Click">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="8" Color="#FF908181"/>
                 </Button.Effect> Sign Up</Button>

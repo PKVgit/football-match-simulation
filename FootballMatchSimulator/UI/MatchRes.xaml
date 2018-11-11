@@ -4,8 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FootballMatchSimulator.UI"
+        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
+        xmlns:model="clr-namespace:FootballMatchSimulator.Model"
         mc:Ignorable="d"
-        Title="MatchRes" Height="356" Width="364" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="#FFBFF6B0" WindowStyle="None" Icon="/FootballMatchSimulator;component/Img/icons/icon.png">
+        Title="MatchRes" Height="356" Width="364" WindowStartupLocation="CenterScreen" Background="#FFBFF6B0" WindowStyle="None" Icon="/FootballMatchSimulator;component/Img/icons/icon.png">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="36"></RowDefinition>
@@ -32,23 +34,25 @@
                 <Button Name="powerBtn" Width="20" Height="20" Margin="0 0 8 0" BorderBrush="{x:Null}" Foreground="#ffffff" Click="powerBtn_Click"></Button>
             </StackPanel>
         </StackPanel>
-        <Label Grid.Row="1" FontFamily="Yu Gothic UI Semibold" FontSize="22" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Label Content="{Binding Win}" Grid.Row="1" FontFamily="Yu Gothic UI Semibold" FontSize="22" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Label.Effect>
                 <DropShadowEffect Direction="318" Color="#FFA3DFCC" BlurRadius="10"/>
-            </Label.Effect> Result:</Label>
-        <Label Grid.Row="2" FontFamily="Yu Gothic UI Semibold" FontSize="22" Foreground="#FFF22EFF" VerticalAlignment="Center" HorizontalAlignment="Center">
+            </Label.Effect>
+        </Label>
+        <Label Content="{Binding CurrentMatch.Result}" Grid.Row="2" FontFamily="Yu Gothic UI Semibold" FontSize="22" Foreground="#FFF22EFF" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Label.Effect>
                 <DropShadowEffect Direction="318" Color="#FFA3DFCC" BlurRadius="10"/>
-            </Label.Effect> Placeholder for result</Label>
-        <ListView Grid.Row="3" Margin="40 0" FontFamily="Yu Gothic UI Semibold" FontSize="16" Opacity="0.75">
+            </Label.Effect>
+        </Label>
+        <ListView Name="SecondTeamList" ItemsSource="{Binding FootballersToUpdate}" Grid.Row="3" Margin="40 0" FontFamily="Yu Gothic UI Semibold" FontSize="16" Opacity="0.75">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="160">Player</GridViewColumn>
-                    <GridViewColumn Width="113">Progress</GridViewColumn>
+                    <GridViewColumn Width="160" DisplayMemberBinding="{Binding Path=Name}">Player</GridViewColumn>
+                    <GridViewColumn Width="113" DisplayMemberBinding="{Binding Path=ProgressValue}">Progress</GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Grid.Row="4" MinWidth="120" Cursor="Hand" Height="40" Margin="100 0" BorderBrush="{x:Null}" FontFamily="Yu Gothic UI Semibold" FontSize="18" Background="#FFF69595" Foreground="Black">
+        <Button Command="{Binding SaveGame}" Grid.Row="4" MinWidth="120" Cursor="Hand" Height="40" Margin="100 0" BorderBrush="{x:Null}" FontFamily="Yu Gothic UI Semibold" FontSize="18" Background="#FFF69595" Foreground="Black">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" Color="#FF908181"/>
             </Button.Effect>

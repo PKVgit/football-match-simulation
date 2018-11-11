@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Configuration;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -12,6 +14,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data;
+using FootballMatchSimulator.ViewModel;
 
 namespace FootballMatchSimulator.UI
 {
@@ -20,13 +24,18 @@ namespace FootballMatchSimulator.UI
     /// </summary>
     public partial class SignUp : Window
     {
+        PlayerViewModel vm;
+
         public SignUp()
         {
+            
             InitializeComponent();
             string path = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName), "Img/icons/minimize.png");
             cutDownBtn.Background = new ImageBrush(new BitmapImage(new Uri(path)));
             path = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName), "Img/icons/close.png");
             powerBtn.Background = new ImageBrush(new BitmapImage(new Uri(path)));
+            vm = new PlayerViewModel();
+            DataContext = vm;
         }
 
         private void powerBtn_Click(object sender, RoutedEventArgs e)

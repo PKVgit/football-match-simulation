@@ -22,7 +22,7 @@ namespace FootballMatchSimulator
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Window> wins;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -30,17 +30,6 @@ namespace FootballMatchSimulator
             cutDownBtn.Background = new ImageBrush(new BitmapImage(new Uri(path)));
             path = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName), "Img/icons/close.png");
             powerBtn.Background = new ImageBrush(new BitmapImage(new Uri(path)));
-            wins = new List<Window>() { new LogIn(), new MatchRes(), new MatchSett()
-            , new PersonalArea(), new SignUp()};
-            ShowWins(wins);
-        }
-
-        private void ShowWins(List<Window> list)
-        {
-            foreach(Window win in list)
-            {
-                win.Show();
-            }
         }
 
         private void powerBtn_Click(object sender, RoutedEventArgs e)
@@ -56,6 +45,18 @@ namespace FootballMatchSimulator
         private void StackPanel_MouseDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
+        }
+
+        private void LogInBtn_Click(object sender, RoutedEventArgs e)
+        {
+            LogIn logIn = new LogIn();
+            logIn.Show();
+        }
+
+        private void SignUpBtn_Click(object sender, RoutedEventArgs e)
+        {
+            SignUp signUp = new SignUp();
+            signUp.Show();
         }
     }
 }

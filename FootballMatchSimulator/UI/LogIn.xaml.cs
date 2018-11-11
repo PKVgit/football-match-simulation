@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FootballMatchSimulator.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -20,6 +21,8 @@ namespace FootballMatchSimulator.UI
     /// </summary>
     public partial class LogIn : Window
     {
+        PlayerViewModel vm;
+
         public LogIn()
         {
             InitializeComponent();
@@ -27,6 +30,8 @@ namespace FootballMatchSimulator.UI
             cutDownBtn.Background = new ImageBrush(new BitmapImage(new Uri(path)));
             path = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName), "Img/icons/close.png");
             powerBtn.Background = new ImageBrush(new BitmapImage(new Uri(path)));
+            vm = new PlayerViewModel();
+            DataContext = vm;
         }
 
         private void powerBtn_Click(object sender, RoutedEventArgs e)

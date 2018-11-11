@@ -12,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using FootballMatchSimulator.ViewModel;
+using FootballMatchSimulator.Model;
 
 namespace FootballMatchSimulator.UI
 {
@@ -20,7 +22,8 @@ namespace FootballMatchSimulator.UI
     /// </summary>
     public partial class MatchSett : Window
     {
-        public MatchSett()
+        PlayerViewModel pvm;
+        public MatchSett(PlayerViewModel vm)
         {
             InitializeComponent();
             string path = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName), "Img/football.jpg");
@@ -29,6 +32,8 @@ namespace FootballMatchSimulator.UI
             cutDownBtn.Background = new ImageBrush(new BitmapImage(new Uri(path)));
             path = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName), "Img/icons/close.png");
             powerBtn.Background = new ImageBrush(new BitmapImage(new Uri(path)));
+            DataContext = vm;
+            pvm = vm;
         }
 
         private void powerBtn_Click(object sender, RoutedEventArgs e)
@@ -44,6 +49,18 @@ namespace FootballMatchSimulator.UI
         private void StackPanel_MouseDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Team team = (Team) FirstTeamList.SelectedItem;
+            pvm.SelectedFirstTeam = team;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Team team = (Team)SecondTeamList.SelectedItem;
+            pvm.SelectedSecondTeam = team;
         }
     }
 }

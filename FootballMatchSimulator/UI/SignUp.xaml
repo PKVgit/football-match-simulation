@@ -48,10 +48,10 @@
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Row="0" Grid.Column="0" FontFamily="Yu Gothic UI Semibold" FontSize="18" Foreground="#FF483939" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 15 0">Name:</Label>
-                <TextBox Grid.Row="0" Grid.Column="1" Padding="0 4 0 4" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left" Width="140" Margin="0 5 0 0"></TextBox>
+                <TextBox Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxLength="10" Name="NameTb" Grid.Row="0" Grid.Column="1" Padding="0 4 0 4" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left" Width="140" Margin="0 5 0 0"></TextBox>
                 <Label Grid.Row="1" Grid.Column="0" FontFamily="Yu Gothic UI Semibold" FontSize="18" Foreground="#FF483939" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 15 0">Password:</Label>
-                <PasswordBox Grid.Row="1" Grid.Column="1" Padding="0 4 0 4" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left" Width="140" Margin="0 5 0 0"></PasswordBox>
-                <Button Grid.Row="2" Grid.ColumnSpan="2" MinWidth="120" Cursor="Hand" Height="36" Margin="120,0,120,0" BorderBrush="{x:Null}" FontFamily="Yu Gothic UI Semibold" FontSize="18" Background="#FF95CDCD" Foreground="#FF483939">
+                <TextBox Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Name="PasswordTb" Grid.Row="1" Grid.Column="1" Padding="0 4 0 4" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left" Width="140" Margin="0 5 0 0"></TextBox>
+                <Button Command="{Binding AddCommand}" Name="SubmitBtn" Grid.Row="2" Grid.ColumnSpan="2" MinWidth="120" Cursor="Hand" Height="36" Margin="120,0,120,0" BorderBrush="{x:Null}" FontFamily="Yu Gothic UI Semibold" FontSize="18" Background="#FF95CDCD" Foreground="#FF483939">
                     <Button.Effect>
                         <DropShadowEffect BlurRadius="8" Color="#FF908181"/>
                     </Button.Effect>

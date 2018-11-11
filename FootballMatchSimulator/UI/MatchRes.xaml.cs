@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FootballMatchSimulator.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace FootballMatchSimulator.UI
     /// </summary>
     public partial class MatchRes : Window
     {
-        public MatchRes()
+        public MatchRes(PlayerViewModel vm)
         {
             InitializeComponent();
             string path = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName), "Img/football.jpg");
@@ -29,6 +30,7 @@ namespace FootballMatchSimulator.UI
             cutDownBtn.Background = new ImageBrush(new BitmapImage(new Uri(path)));
             path = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName), "Img/icons/close.png");
             powerBtn.Background = new ImageBrush(new BitmapImage(new Uri(path)));
+            DataContext = vm;
         }
 
         private void powerBtn_Click(object sender, RoutedEventArgs e)

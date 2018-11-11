@@ -4,14 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FootballMatchSimulator.UI"
+        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
+        xmlns:model="clr-namespace:FootballMatchSimulator.Model"
         mc:Ignorable="d"
-        Title="MatchSett" Height="456" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="#FFBFF6B0" WindowStyle="None" Icon="/FootballMatchSimulator;component/Img/icons/icon.png">
+        Title="MatchSett" Height="456" Width="600" WindowStartupLocation="CenterScreen" Background="#FFBFF6B0" WindowStyle="None" Icon="/FootballMatchSimulator;component/Img/icons/icon.png">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="36"></RowDefinition>
             <RowDefinition Height="100"></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -43,23 +46,61 @@
             <Label.Effect>
                 <DropShadowEffect Direction="318" Color="#FFA3DFCC" BlurRadius="10"/>
             </Label.Effect> Select the command 2</Label>
-        <ListView Grid.Row="2" Grid.Column="0" Margin="10" FontFamily="Yu Gothic UI Semibold" FontSize="16" Opacity="0.75">
+        <ListView Name="FirstTeamList" ItemsSource="{Binding Teams}" Grid.Row="2" Grid.Column="0" Margin="10" FontFamily="Yu Gothic UI Semibold" FontSize="16" Opacity="0.75">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="160">Team</GridViewColumn>
-                    <GridViewColumn Width="113">Rate</GridViewColumn>
+                    <GridViewColumn Width="160" DisplayMemberBinding="{Binding Path=Name}">Team</GridViewColumn>
+                    <GridViewColumn Width="113" DisplayMemberBinding="{Binding Path=Rate}">Rate</GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView Grid.Row="2" Grid.Column="1" Margin="10" FontFamily="Yu Gothic UI Semibold" FontSize="16" Opacity="0.75">
+        <ListView Name="SecondTeamList" ItemsSource="{Binding Teams}" Grid.Row="2" Grid.Column="1" Margin="10" FontFamily="Yu Gothic UI Semibold" FontSize="16" Opacity="0.75">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="160">Team</GridViewColumn>
-                    <GridViewColumn Width="113">Rate</GridViewColumn>
+                    <GridViewColumn Width="160" DisplayMemberBinding="{Binding Path=Name}">Team</GridViewColumn>
+                    <GridViewColumn Width="113" DisplayMemberBinding="{Binding Path=Rate}">Rate</GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Grid.Row="3" Grid.ColumnSpan="2" MinWidth="120" Cursor="Hand" Height="40" Margin="200,0,200,0" BorderBrush="{x:Null}" FontFamily="Yu Gothic UI Semibold" FontSize="18" Background="#FFF69595" Foreground="Black">
+        <Button Command="{Binding ChooseFirstTeam}" Grid.Row="3" Grid.Column="0" MinWidth="100" Cursor="Hand" Height="30" Margin="50,0,50,0" BorderBrush="{x:Null}" FontFamily="Yu Gothic UI Semibold" FontSize="18" Background="#FFF07595" Foreground="Black" Click="Button_Click">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" Color="#FF908181"/>
+            </Button.Effect>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Style.Triggers>
+                        <Trigger Property="Button.IsPressed" Value="True">
+                            <Setter Property="Background" Value="Transparent" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FFADEBF3"/>
+                            <Setter Property="Foreground" Value="#000000"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            Choose
+        </Button>
+        <Button Command="{Binding ChooseSecondTeam}" Grid.Row="3" Grid.Column="1"  MinWidth="100" Cursor="Hand" Height="30" Margin="50,0,50,0" BorderBrush="{x:Null}" FontFamily="Yu Gothic UI Semibold" FontSize="18" Background="#FFF07595" Foreground="Black" Click="Button_Click_1">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" Color="#FF908181"/>
+            </Button.Effect>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Style.Triggers>
+                        <Trigger Property="Button.IsPressed" Value="True">
+                            <Setter Property="Background" Value="Transparent" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FFADEBF3"/>
+                            <Setter Property="Foreground" Value="#000000"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            Choose
+        </Button>
+        <Button Command="{Binding SimulateGame}" Grid.Row="4" Grid.ColumnSpan="2" MinWidth="120" Cursor="Hand" Height="40" Margin="200,0,200,0" BorderBrush="{x:Null}" FontFamily="Yu Gothic UI Semibold" FontSize="18" Background="#FFF69595" Foreground="Black">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" Color="#FF908181"/>
             </Button.Effect>
