@@ -65,12 +65,27 @@ namespace FootballMatchSimulator.ViewModel
                             CurrentMatch = new Match(135, SelectedFirstTeam.Id, SelectedSecondTeam.Id, result, Player.Id);
                             CurrentMatch.AddMatch(CurrentMatch);
                             CurrentMatch = CurrentMatch.GetCurrentMatch(CurrentMatch);
+                            FootballersToUpdate = FilterByUniq(FootballersToUpdate);
                             MatchRes matchRes = new MatchRes(this);
                             matchRes.Show();
                             Application.Current.Windows[2].Close();
                         }
                     }));
             }
+        }
+
+        private List<Footballer> FilterByUniq(List<Footballer> footballers)
+        {
+            List<Footballer> result = new List<Footballer>();
+
+            foreach (Footballer footballer in footballers)
+            {
+                if (!result.Contains(footballer))
+                {
+                    result.Add(footballer);
+                }
+            }
+            return result;
         }
 
         private RelayCommand saveGame;

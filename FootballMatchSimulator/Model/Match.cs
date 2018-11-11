@@ -50,16 +50,6 @@ namespace FootballMatchSimulator.Model
             }
         }
 
-        //public void SaveMatch(Match match)
-        //{
-        //    GetConnection();
-        //    SqlCommand writeMatch = new SqlCommand("Update Footballer set Rate = @Rate where FootballerId = @Id", connection);
-        //    writeRate.Parameters.AddWithValue("Rate", this.Rate);
-        //    writeRate.Parameters.AddWithValue("Id", id);
-        //    writeRate.ExecuteNonQuery();
-        //    CloseConnection();
-        //}
-
         public void AddMatch(Match match)
         {
             GetConnection();
